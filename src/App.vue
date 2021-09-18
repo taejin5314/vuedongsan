@@ -1,12 +1,18 @@
 <template>
+  <div class="menu">
+    <a>Home</a>
+    <a>Products</a>
+    <a>About</a>
+  </div>
+
   <img alt="Vue logo" src="./assets/logo.png" />
   <div>
-    <h4>XX Room</h4>
-    <p>{{ price1 }} Dollar</p>
+    <h4>{{ products[0] }}</h4>
+    <p>60 Dollar</p>
   </div>
   <div>
-    <h4>XX Room</h4>
-    <p>{{ price2 }} Dollar</p>
+    <h4>{{ products[1] }}</h4>
+    <p>70 Dollar</p>
   </div>
 </template>
 
@@ -15,8 +21,7 @@ export default {
   name: "App",
   data() {
     return {
-      price1: 60,
-      price2: 70,
+      products: ["Toronto", "RichmondHill"],
     };
   },
   components: {},
@@ -31,5 +36,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.menu {
+  background: darkslateblue;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.menu a {
+  color: white;
+  padding: 10px;
 }
 </style>
