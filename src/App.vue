@@ -1,8 +1,6 @@
 <template>
   <div class="menu">
-    <a>Home</a>
-    <a>Products</a>
-    <a>About</a>
+    <a v-for="navMenu in menu" :key="navMenu">{{ navMenu }}</a>
   </div>
 
   <img alt="Vue logo" src="./assets/logo.png" />
@@ -21,6 +19,7 @@ export default {
   name: "App",
   data() {
     return {
+      menu: ["Home", "Products", "About"],
       products: ["Toronto", "RichmondHill"],
     };
   },
