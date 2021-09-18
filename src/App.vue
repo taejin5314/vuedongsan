@@ -1,16 +1,11 @@
 <template>
   <div class="menu">
-    <a v-for="navMenu in menu" :key="navMenu">{{ navMenu }}</a>
+    <a v-for="(navMenu, i) in menu" :key="i">{{ navMenu }}</a>
   </div>
 
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <div>
-    <h4>{{ products[0] }}</h4>
-    <p>60 Dollar</p>
-  </div>
-  <div>
-    <h4>{{ products[1] }}</h4>
-    <p>70 Dollar</p>
+  <div class="products" v-for="(product, i) in products" :key="i">
+    <h4>{{ product }}</h4>
+    <p>{{ prices[i] }}</p>
   </div>
 </template>
 
@@ -20,7 +15,8 @@ export default {
   data() {
     return {
       menu: ["Home", "Products", "About"],
-      products: ["Toronto", "RichmondHill"],
+      products: ["Toronto", "Richmond Hill", "Vaughan Mills"],
+      prices: [60, 70, 100],
     };
   },
   components: {},
@@ -34,7 +30,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 .menu {
