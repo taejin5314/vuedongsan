@@ -4,7 +4,7 @@
   </div>
 
   <div class="products" v-for="(product, i) in products" :key="i">
-    <h4>{{ product }}</h4>
+    <h4>{{ products[i] }}</h4>
     <p>{{ prices[i] }}</p>
   </div>
 </template>
