@@ -6,8 +6,8 @@
   <div class="products" v-for="(product, i) in products" :key="i">
     <h4>{{ products[i] }}</h4>
     <p>{{ prices[i] }}</p>
-    <button @click="reportCount++">Report</button>
-    <span>Report Count: {{ reportCount }}</span>
+    <button @click="increase(i)">Report</button>
+    <span>Report Count: {{ reportCount[i] }}</span>
   </div>
 </template>
 
@@ -16,11 +16,16 @@ export default {
   name: "App",
   data() {
     return {
-      reportCount: 0,
+      reportCount: Array(3).fill(0),
       menu: ["Home", "Products", "About"],
       products: ["Toronto", "Richmond Hill", "Vaughan Mills"],
       prices: [60, 70, 100],
     };
+  },
+  methods: {
+    increase(index) {
+      this.reportCount[index]++;
+    },
   },
   components: {},
 };
