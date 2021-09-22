@@ -1,5 +1,5 @@
 <template>
-  <div class="black-bg">
+  <div class="black-bg" v-if="isOpen">
     <div class="white-bg">
       <h4>Details</h4>
       <span
@@ -8,6 +8,7 @@
         voluptates esse omnis ratione architecto molestias tempore fuga,
         accusamus velit eligendi quia id.</span
       >
+      <button @click="isOpen = false">Close</button>
     </div>
   </div>
 
@@ -15,20 +16,21 @@
     <a v-for="(navMenu, i) in menu" :key="i">{{ navMenu }}</a>
   </div>
 
-  <div class="products" v-for="(product, i) in products" :key="i">
-    <img :src="images[i]" class="room-img" />
-    <h4>{{ products[i] }}</h4>
-    <p>{{ prices[i] }} dollars</p>
-    <button @click="increase(i)">Report</button>
-    <span>Report Count: {{ reportCount[i] }}</span>
+  <div class="products" v-for="(product, i) in oneRoom" :key="i">
+    <img :src="oneRoom[i].image" class="room-img" />
+    <h4 @click="isOpen = true">{{ oneRoom[i].title }}</h4>
+    <p>{{ oneRoom[i].price }} won</p>
   </div>
 </template>
 
 <script>
+import data from "./assets/data.js";
 export default {
   name: "App",
   data() {
     return {
+      oneRoom: data,
+      isOpen: false,
       images: [
         require("./assets/room0.jpg"),
         require("./assets/room1.jpg"),
