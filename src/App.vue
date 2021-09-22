@@ -4,8 +4,9 @@
   </div>
 
   <div class="products" v-for="(product, i) in products" :key="i">
+    <img :src="images[i]" class="room-img" />
     <h4>{{ products[i] }}</h4>
-    <p>{{ prices[i] }}</p>
+    <p>{{ prices[i] }} dollars</p>
     <button @click="increase(i)">Report</button>
     <span>Report Count: {{ reportCount[i] }}</span>
   </div>
@@ -16,6 +17,11 @@ export default {
   name: "App",
   data() {
     return {
+      images: [
+        require("./assets/room0.jpg"),
+        require("./assets/room1.jpg"),
+        require("./assets/room2.jpg"),
+      ],
       reportCount: Array(3).fill(0),
       menu: ["Home", "Products", "About"],
       products: ["Toronto", "Richmond Hill", "Vaughan Mills"],
@@ -49,5 +55,10 @@ export default {
 .menu a {
   color: white;
   padding: 10px;
+}
+
+.room-img {
+  width: 100%;
+  margin-top: 40px;
 }
 </style>
